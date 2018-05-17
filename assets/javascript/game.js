@@ -3,10 +3,10 @@ $(document).ready(function () {
     // Define global variables with default values.
     var guessedNumber = 0;
     var targetNumber = 0;
-    var diamond = 0;
-    var circle = 0;
-    var square = 0;
-    var star = 0;
+    var crystal1 = 0;
+    var crystal3 = 0;
+    var crystal2 = 0;
+    var crystal4 = 0;
     var tWins = 0;
     var tLosses = 0;
 
@@ -14,29 +14,29 @@ $(document).ready(function () {
     
     function initializeGame() {
         guessedNumber = 0;
-        targetNumber = Math.floor(Math.random() * 50) + 20;
-        $("#second-number").text(targetNumber);
+        targetNumber = Math.floor(Math.random() * 40) + 30;
+        $("#target-number").text(targetNumber);
         operator = "";
         isOperatorChosen = false;
         isCalculated = false;
         //to initiate the game we need to assign a random value to each crystal:
-        diamond = Math.floor(Math.random() * 11) + 1;
-        console.log(diamond);
-        circle = Math.floor(Math.random() * 11) + 1;
-        console.log(circle);
-        square = Math.floor(Math.random() * 11) + 1;
-        console.log(square);
-        star = Math.floor(Math.random() * 11) + 1;
-        console.log(star);
+        crystal1 = Math.floor(Math.random() * 11) + 1;
+        console.log(crystal1);
+        crystal2 = Math.floor(Math.random() * 11) + 1;
+        console.log(crystal2);
+        crystal3 = Math.floor(Math.random() * 11) + 1;
+        console.log(crystal3);
+        crystal4 = Math.floor(Math.random() * 11) + 1;
+        console.log(crystal4);
         //-------------------------------------------------
-        $("#diamond").val(diamond);
-        $("#square").val(square);
-        $("#circle").val(circle);
-        $("#star").val(star);
-        $("#first-number").text(0);
+        $("#crystal1").val(crystal1);
+        $("#crystal2").val(crystal2);
+        $("#crystal3").val(crystal3);
+        $("#crystal4").val(crystal4);
+        $("#guessed-number").text(0);
     }
 
-    //Calling my initializ function to start the game.
+    //Calling my initializ function to crystal4t the game.
     initializeGame();
    
     console.log(targetNumber);
@@ -45,7 +45,7 @@ $(document).ready(function () {
     $(".number").on("click", function () {
         if (guessedNumber < targetNumber) {
             guessedNumber += parseInt($(this).val());
-            $("#first-number").text(guessedNumber);
+            $("#guessed-number").text(guessedNumber);
         }
         else if (guessedNumber === targetNumber) {
             alert("You win!");
@@ -61,6 +61,6 @@ $(document).ready(function () {
         }
     })
     console.log("first number is " + guessedNumber)
-    $("#second-number").text(targetNumber);
+    $("#target-number").text(targetNumber);
 
 });
