@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>jQuery Calculator</title>
+    <title>Crystals Game</title>
 
     <!-- Added link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -25,35 +25,36 @@
         <div class="row">
 
             <!-- Calculator Panel -->
-            <div class="col-lg-6">
+            <div class="col-lg-7">
                 <div class="card">
                     <h3 class="card-header">Your Choices!</h3>
 
                     <div class="card-body">
                         <button id="diamond" class="btn btn-primary number" value="">
-                            <h1>diamond</h1>
+                                <img src="assets/images/diamond1.jpg" />
                         </button>
                         <button id="circle" class="btn btn-primary number" value="">
-                            <h1>circle</h1>
+                                <img src="assets/images/diamond1.jpg" />
                         </button>
                         <button id="square" class="btn btn-primary number" value="">
-                            <h1>square</h1>
+                                <img src="assets/images/diamond1.jpg" />
                         </button>
                         <button id="star" class="btn btn-primary number" value="">
-                            <h1>star</h1>
+                                <img src="assets/images/diamond1.jpg" />
                         </button>
-
+                        <br><br>
+                        <p id="wins">Total Wins: 0</p>
+                        <p id="losses">Total Losses: 0</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Result Panel -->
-            <div class="col-lg-6">
+            <!-- Scores Panel -->
+            <div class="col-lg-5">
                 <div class="card">
                     <h3 class="card-header">Try Here:</h3>
                     <div class="card-body">
-                        <p id="wins">Total Wins: 0</p>
-                        <p id="losses">Total Losses: 0</p>
+
                         <h1 id="first-number"></h1>
                         <h1 id="second-number"></h1>
                     </div>
@@ -61,87 +62,14 @@
             </div>
         </div>
     </div>
+    <style>
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 
-    <script type="text/javascript">
-
-        $(document).ready(function () {
-
-            // Make our variables global to the runtime of our application
-
-            var firstNumber = 0;
-            var secondNumber = 0;
-
-
-            var diamond = 0;
-            var circle = 0;
-            var square = 0;
-            var star = 0;
-
-            var tWins = 0;
-            var tLosses = 0;
-            
-
-            // Use a function to initialize our calculator.
-            // This way when the user hits clear, we can guarantee a reset of the app.
-            function initializeGame() {
-                firstNumber = 0;
-                secondNumber = Math.floor(Math.random() * 50) + 20;
-
-                $("#second-number").text(secondNumber);
-                operator = "";
-                isOperatorChosen = false;
-                isCalculated = false;
-                //to initiate the game we need to assign a random value to each crystal:
-                diamond = Math.floor(Math.random() * 11) + 1;
-                console.log(diamond);
-                circle = Math.floor(Math.random() * 11) + 1;
-                console.log(circle);
-                square = Math.floor(Math.random() * 11) + 1;
-                console.log(square);
-                star = Math.floor(Math.random() * 11) + 1;
-                console.log(star);
-
-                $("#first-number").text(0);
-            }
-            initializeGame();
-            //Can I assign the randomly geneatd value without defining a click event?!
-            console.log(secondNumber);
-            //-------------------------------------------------
-
-            $("#diamond").val(diamond);
-            $("#square").val(square);
-            $("#circle").val(circle);
-            $("#star").val(star);
-
-            $(".card").on("click", ".number", function () {
-
-                if (firstNumber < secondNumber) {
-                    firstNumber += parseInt($(this).val());
-                    $("#first-number").text(firstNumber);
-                }
-                else if (firstNumber === secondNumber) {
-                    alert("You win!");
-                    tWins++;
-                    $("#wins").text("Total wins: "+tWins);
-                    initializeGame();
-                }
-                else{
-                    alert("You lost! Try again!")
-                    tLosses++;
-                    $("#losses").text("Total Losses: " + tLosses);
-                }
-
-
-
-            })
-            console.log("first number is " + firstNumber)
-
-            $("#second-number").text(secondNumber);
-            // Call initializeCalculater so we can set the state of our app
-            //initializeGame();
-        });
-
-    </script>
+<script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 
