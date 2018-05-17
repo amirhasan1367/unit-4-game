@@ -36,7 +36,7 @@ $(document).ready(function () {
         $("#guessed-number").text(0);
     }
 
-    //Calling my initializ function to crystal4t the game.
+    //Calling my initializ function to start the game.
     initializeGame();
    
     console.log(targetNumber);
